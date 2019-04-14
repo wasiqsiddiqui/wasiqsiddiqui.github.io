@@ -1,0 +1,4 @@
+<?php
+
+const FIBIT_SECRET = 'f384aa13a78f0cd16200487f95505256';
+
