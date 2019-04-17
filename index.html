@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Welcome</title>
-		<!--<link rel="icon" href="WebProfile.png">-->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-		<!--<script src="app.js"></script>-->
-	</head>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>H-TEC</title>
+    <!--<link rel="icon" href="WebProfile.png">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+	<a href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22DG5G&redirect_uri=https%3A%2F%2Fwasiqsiddiqui.github.io%2F&scope=heartrate&expires_in=604800">Login to Fitbit</a>
+	<script src="app.js" ></script>
+</head>
 
-	<body>
-		<script src="app.js"></script> <!--Used for javascript fitbit info>-->
-		<!--Below line is used for fitbit login information>-->
-		<a href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22DG5G&redirect_uri=https%3A%2F%2Fwasiqsiddiqui.github.io%2Ffitbit-data.html&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800">Login to Fitbit</a>
-		<h1 id="welcome">Welcome</h1>
-	</body>
+<body>
+	<h1 id="title"> H-TEC</h1>
+	<script> 
+		var access_token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkRINEsiLCJzdWIiOiI3Q1lHTlgiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc29jIHJhY3QgcnNldCBybG9jIHJ3ZWkgcmhyIHJwcm8gcm51dCByc2xlIiwiZXhwIjoxNTU2MDg0MTc0LCJpYXQiOjE1NTU0Nzk4MTJ9.pStCB1n7vumN8oYPN2W_WMUpkJ06w5spbA14SDL9MHo';
+		var userId = '7CYGNX';
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'httpss://api.fitbit.com/1/user/'+ userId +'/activities/heart/date/today/1w.json');
+		xhr.setRequestHeader("Authorization", 'Bearer ' + access_token);
+		xhr.onload = function() {
+		if (xhr.readyState == XMLHttpRequest.DONE) {
+		  console.log(xhr.responseText);
+		  document.write(xhr.responseText);
+		   }
+		};
+		xhr.send(null);
+	</script>
+</body>
 </html>
